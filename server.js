@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const connectDB = require("./config/db");
+const cors = require("cors");
 
+app.use(cors());
 app.use(express.json({ extended: false }));
 
 connectDB();
@@ -9,7 +11,7 @@ connectDB();
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req, res) => {
-  res.status(200).json({ msg: "This is axiom social app" });
+  res.status(200).json({ msg: "This is axiom social app UPDATED" });
 });
 
 app.use("/api/auth", require("./routes/auth"));
